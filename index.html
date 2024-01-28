@@ -41,30 +41,107 @@
 		<div class="arrow right" id="rightArrow">&gt;</div>
 	</div>
 
-	<!-- Add this after your slider div -->
-	<div class="product-grid">
-		<div class="product-card">
-			<img src="/images/product1.jpg" alt="Product 1">
-		</div>
-		<div class="product-card">
-			<img src="/images/product2.jpg" alt="Product 2">
-		</div>
-		<div class="product-card">
-			<img src="/images/product3.jpg" alt="Product 3">
-		</div>
-		<div class="product-card">
-			<img src="/images/product4.jpg" alt="Product 4">
-		</div>
-		<div class="product-card">
-			<img src="/images/product5.jpg" alt="Product 5">
-		</div>
-		<div class="product-card">
-			<img src="/images/product6.jpg" alt="Product 6">
-		</div>
-		<!-- ... repeat for all 12 products ... -->
+	<!-- Product category buttons -->
+	<div class="product-categories">
+		<button data-category="category1">METALLIC balloons</button>
+		<button data-category="category2">MACARON balloons</button>
+		<button data-category="category3">OTHER balloons</button>
+		<!-- ... add more buttons as needed ... -->
 	</div>
 
 
+	<!-- Add this after your slider div -->
+	<div class="product-grid">
+		<div class="product-card category1">
+			<img src="/images/product1.jpg" alt="Product 1">
+			<p>Product 1 Description</p>
+		</div>
+		<div class="product-card category1">
+			<img src="/images/product2.jpg" alt="Product 2">
+			<p>Product 2 Description</p>
+		</div>
+		<div class="product-card category1">
+			<img src="/images/product3.jpg" alt="Product 3">
+			<p>Product 3 Description</p>
+		</div>
+		<div class="product-card category1">
+			<img src="/images/product4.jpg" alt="Product 4">
+			<p>Product 4 Description</p>
+		</div>
+		<div class="product-card category1">
+			<img src="/images/product5.jpg" alt="Product 5">
+			<p>Product 5 Description</p>
+		</div>
+		<div class="product-card category1">
+			<img src="/images/product6.jpg" alt="Product 6">
+			<p>Product 6 Description</p>
+		</div>
+		<div class="product-card category2">
+			<img src="/images/product1.jpg" alt="Product 4">
+			<p>Product 1 Description</p>
+		</div>
+		<div class="product-card category2">
+			<img src="/images/product3.jpg" alt="Product 5">
+			<p>Product 3 Description</p>
+		</div>
+		<div class="product-card category2">
+			<img src="/images/product5.jpg" alt="Product 6">
+			<p>Product 5 Description</p>
+		</div>
+		<div class="product-card category3">
+			<img src="/images/product5.jpg" alt="Product 4">
+			<p>Product 5 Description</p>
+		</div>
+		<div class="product-card category3">
+			<img src="/images/product6.jpg" alt="Product 5">
+			<p>Product 6 Description</p>
+		</div>
+		<div class="product-card category3">
+			<img src="/images/product1.jpg" alt="Product 6">
+			<p>Product 1 Description</p>
+		</div>
+		<!-- ... repeat for all 12 products ... -->
+	</div>
+	<div class="space"></div>
+
+	<!-- Our Story section -->
+	<div class="our-story">
+		<img src="/images/factory_bg.jpg" alt="Background Image">
+		<div class="overlay"></div>
+		<div class="story-content">
+			<h2>Our Story</h2>
+			<p>Lumjoy is a company dedicated to bringing joy and happiness to people's lives through our
+				high-quality products. We started our journey with a vision to create unique and
+				innovative lighting solutions that would brighten up any space.</p>
+			<p>With a team of passionate designers and engineers, we have been able to develop a wide range
+				of lighting products that cater to different needs and preferences. From elegant
+				chandeliers to modern table lamps, our collection offers something for everyone.</p>
+			<p>At Lumjoy, we believe in the power of light to transform spaces and create memorable
+				experiences. We strive to provide our customers with not just functional lighting
+				solutions, but also pieces of art that enhance the aesthetics of their surroundings.</p>
+			<p>Over the years, we have built a strong reputation for our commitment to quality and customer
+				satisfaction. We take pride in our craftsmanship and attention to detail, ensuring that
+				every Lumjoy product meets the highest standards.</p>
+			<p>As we continue to grow and expand our product offerings, our mission remains the same - to
+				spread joy and create beautiful moments through our lighting solutions. Join us on this
+				illuminating journey and let Lumjoy light up your life.</p>
+		</div>
+	</div>
+	<p></p>
+	</div>
+	</div>
+	<!-- ... rest of your HTML ... -->
+
+	<!-- Footer -->
+	<footer>
+		<ul>
+			<li><a href="#section1">Section 1</a></li>
+			<li><a href="#section2">Section 2</a></li>
+			<li><a href="#section3">Section 3</a></li>
+			<!-- ... repeat for all sections ... -->
+		</ul>
+		<p>&copy; 2022 Your Website Name</p>
+	</footer>
 
 	<script>
 		window.onload = function () {
@@ -108,15 +185,29 @@
 			}
 		});
 
-		slider.on('afterChange', function () {
-			// Find all images in the slider
-			var images = document.querySelectorAll('.slides img');
+		// Get all buttons
+		var buttons = document.querySelectorAll('.product-categories button');
 
-			// Loop through all images
-			for (var i = 0; i < images.length; i++) {
-				// Center the image
-				images[i].style.objectPosition = 'center';
-			}
+		// Add click event listener to each button
+		buttons.forEach(function (button) {
+			button.addEventListener('click', function () {
+				// Get the category from the button's data-category attribute
+				var category = button.getAttribute('data-category');
+
+				// Get all product cards
+				var cards = document.querySelectorAll('.product-card');
+
+				// Hide all product cards
+				cards.forEach(function (card) {
+					card.style.display = 'none';
+				});
+
+				// Show product cards of the selected category
+				var selectedCards = document.querySelectorAll('.product-card.' + category);
+				selectedCards.forEach(function (card) {
+					card.style.display = 'block';
+				});
+			});
 		});
 	</script>
 </body>

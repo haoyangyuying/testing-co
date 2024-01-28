@@ -16,12 +16,6 @@
 	transition: transform 0.5s;
 }
 
-.slides img {
-	width: 14.2857%;
-	/* Adjusted to account for the duplicate slides */
-	height: 100%;
-}
-
 .arrow {
 	position: absolute;
 	top: 50%;
@@ -124,8 +118,10 @@ section:nth-child(even) img {
 }
 
 .slides img {
-	width: 100%;
-	height: auto;
+	width: 14.2857%;
+	/* Adjusted to account for the duplicate slides */
+	height: 100%;
+
 	object-fit: contain;
 	/* Ensure images scale proportionally */
 	padding: 0 20px;
@@ -143,14 +139,99 @@ section:nth-child(even) img {
 .product-card img {
 	width: 100%;
 	height: auto;
-	padding: 0 10px; /* Add space to the left and right of the image */
-	box-sizing: border-box; /* Include padding in the element's total width and height */
+	padding: 0 10px;
+	/* Add space to the left and right of the image */
+	box-sizing: border-box;
+	/* Include padding in the element's total width and height */
 }
 
 .container {
 	width: 90%;
 	margin: 0 auto;
 	/* Center the container */
+}
+
+.product-card p {
+	font-size: 14px;
+	color: #333;
+	text-align: center;
+}
+
+.product-categories {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 20px;
+	/* Add some space below the buttons */
+}
+
+.product-categories button {
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.our-story {
+	position: relative;
+	height: 800px;
+	margin: 50px 0;
+	/* Add this line */
+	display: flex;
+	align-items: center;
+}
+
+.space {
+	margin: 50px 0;
+}
+
+.our-story img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.story-content {
+	position: relative;
+	width: 50%;
+	/* Add this line */
+	margin-left: 20px;
+	color: white;
+}
+
+.overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.story-content {
+	position: relative;
+	margin-left: 20px;
+	color: white;
+}
+
+footer {
+	background-color: #333;
+	color: white;
+	padding: 20px;
+	text-align: center;
+}
+
+footer ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+footer ul li {
+	display: inline;
+	margin: 0 10px;
+}
+
+footer ul li a {
+	color: white;
+	text-decoration: none;
 }
 
 @media (max-width: 600px) {
@@ -173,9 +254,18 @@ section:nth-child(even) img {
 
 @media (max-width: 600px) {
 	.slides img {
-	    width: 100%;
-	    height: auto;
-	    object-fit: cover; /* Make the image cover the entire container */
-	    object-position: center; /* Center the image */
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		/* Make the image cover the entire container */
+		object-position: center;
+		/* Center the image */
 	}
-    }
+}
+
+
+@media (max-width: 600px) {
+	.story-content {
+		width: 100%;
+	}
+}
